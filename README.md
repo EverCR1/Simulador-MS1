@@ -1,7 +1,11 @@
 # Proyecto Modelación y Simulación 1
+
 **Integrantes**
+
 Ever Corazón 202042236
+
 Olsend Luna 202040897
+
 Carlos Meza 201845029
 
 *Antes de subir cambios verificar la rama donde estamos situados*
