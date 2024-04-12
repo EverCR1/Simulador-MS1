@@ -10,6 +10,20 @@ Carlos Meza 201845029
 
 *Antes de subir cambios verificar la rama donde estamos situados*
 
+## Pasos a seguir
+
+1. Si ya existe una rama, utilizar git checkout para trabajar en ella
+
+2. Si no existe una rama, crearla y asegurarse de trabajar en ella antes de codificar
+
+3. Antes de subir cambios al repositorio utilizar git status para saber la rama donde estamos
+
+4. Subir cambios a la rama
+
+*Extras*
+
+6. Si se quiere obtener los cambios de otra rama para probar las funcionalidades completas, utilizar la parte de Fusionar Ramas
+
 ## Comandos
 ### Consultar estado 
 ```
