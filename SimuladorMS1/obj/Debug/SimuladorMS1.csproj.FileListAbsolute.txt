@@ -1,0 +1,11 @@
+C:\Users\carlo\Downloads\Proyecto Simulación\Simulador-MS1\SimuladorMS1\bin\Debug\SimuladorMS1.exe.config
+C:\Users\carlo\Downloads\Proyecto Simulación\Simulador-MS1\SimuladorMS1\bin\Debug\SimuladorMS1.exe
+C:\Users\carlo\Downloads\Proyecto Simulación\Simulador-MS1\SimuladorMS1\bin\Debug\SimuladorMS1.pdb
+C:\Users\carlo\Downloads\Proyecto Simulación\Simulador-MS1\SimuladorMS1\obj\Debug\SimuladorMS1.csproj.AssemblyReference.cache
+C:\Users\carlo\Downloads\Proyecto Simulación\Simulador-MS1\SimuladorMS1\obj\Debug\SimuladorMS1.Form1.resources
+C:\Users\carlo\Downloads\Proyecto Simulación\Simulador-MS1\SimuladorMS1\obj\Debug\SimuladorMS1.Properties.Resources.resources
+C:\Users\carlo\Downloads\Proyecto Simulación\Simulador-MS1\SimuladorMS1\obj\Debug\SimuladorMS1.csproj.GenerateResource.cache
+C:\Users\carlo\Downloads\Proyecto Simulación\Simulador-MS1\SimuladorMS1\obj\Debug\SimuladorMS1.csproj.CoreCompileInputs.cache
+C:\Users\carlo\Downloads\Proyecto Simulación\Simulador-MS1\SimuladorMS1\obj\Debug\SimuladorMS1.exe
+C:\Users\carlo\Downloads\Proyecto Simulación\Simulador-MS1\SimuladorMS1\obj\Debug\SimuladorMS1.pdb
+C:\Users\carlo\Downloads\Proyecto Simulación\Simulador-MS1\SimuladorMS1\obj\Debug\SimuladorMS1.Simulador.resources
