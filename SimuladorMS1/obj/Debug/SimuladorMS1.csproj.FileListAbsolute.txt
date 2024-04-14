@@ -9,3 +9,4 @@ C:\Users\carlo\Downloads\Proyecto Simulación\Simulador-MS1\SimuladorMS1\obj\Deb
 C:\Users\carlo\Downloads\Proyecto Simulación\Simulador-MS1\SimuladorMS1\obj\Debug\SimuladorMS1.exe
 C:\Users\carlo\Downloads\Proyecto Simulación\Simulador-MS1\SimuladorMS1\obj\Debug\SimuladorMS1.pdb
 C:\Users\carlo\Downloads\Proyecto Simulación\Simulador-MS1\SimuladorMS1\obj\Debug\SimuladorMS1.Simulador.resources
+C:\Users\carlo\Downloads\Proyecto Simulación\Simulador-MS1\SimuladorMS1\obj\Debug\SimuladorMS1.Form2.resources

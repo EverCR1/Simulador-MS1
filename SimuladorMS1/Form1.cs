@@ -59,6 +59,9 @@ namespace SimuladorMS1
             AbrirformHija(new Simulador());
         }
 
-
+        private void button2_Click(object sender, EventArgs e)
+        {
+            AbrirformHija(new Form2());
+        }
     }
 }
