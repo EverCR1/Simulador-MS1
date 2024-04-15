@@ -46,6 +46,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="bdSimuladorDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>bdSimuladorDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="detalleHora.cs" />
+    <Compile Include="detalleProducto.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -59,9 +66,22 @@
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
     <Compile Include="Formulas.cs" />
+    <Compile Include="frmClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmClientes.Designer.cs">
+      <DependentUpon>frmClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmHoras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmHoras.Designer.cs">
+      <DependentUpon>frmHoras.cs</DependentUpon>
+    </Compile>
     <Compile Include="Operaciones.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="resumenGeneral.cs" />
     <Compile Include="Simulador.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -73,6 +93,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmClientes.resx">
+      <DependentUpon>frmClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmHoras.resx">
+      <DependentUpon>frmHoras.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -86,6 +112,17 @@
     <EmbeddedResource Include="Simulador.resx">
       <DependentUpon>Simulador.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="bdSimuladorDataSet.xsc">
+      <DependentUpon>bdSimuladorDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="bdSimuladorDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>bdSimuladorDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bdSimuladorDataSet.xss">
+      <DependentUpon>bdSimuladorDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
