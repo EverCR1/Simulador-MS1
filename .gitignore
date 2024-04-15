@@ -1,2 +1,6 @@
 .vs/
 SimuladorMS1/obj/
+SimuladorMS1/bdSimuladorDataSet.Designer.cs
+SimuladorMS1/bdSimuladorDataSet.xsc
+SimuladorMS1/bdSimuladorDataSet.xsd
+SimuladorMS1/bdSimuladorDataSet.xss

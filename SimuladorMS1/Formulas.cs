@@ -20,6 +20,8 @@ namespace SimuladorMS1
 
         public double e = 2.7182818284; // Número de Euler
 
+        public int horas { get; set; }
+
 
         // MODELO MM1
         // Obtener Ls

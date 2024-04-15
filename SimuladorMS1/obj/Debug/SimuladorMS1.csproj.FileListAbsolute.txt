@@ -10,3 +10,17 @@ C:\Users\carlo\Downloads\Proyecto Simulación\Simulador-MS1\SimuladorMS1\obj\Deb
 C:\Users\carlo\Downloads\Proyecto Simulación\Simulador-MS1\SimuladorMS1\obj\Debug\SimuladorMS1.pdb
 C:\Users\carlo\Downloads\Proyecto Simulación\Simulador-MS1\SimuladorMS1\obj\Debug\SimuladorMS1.Simulador.resources
 C:\Users\carlo\Downloads\Proyecto Simulación\Simulador-MS1\SimuladorMS1\obj\Debug\SimuladorMS1.Form2.resources
+C:\Users\Ever Corazón\Desktop\Ever Primer Semestre 2024\Modelación y Simulación 1\SimuladorMS1\SimuladorMS1\obj\Debug\SimuladorMS1.csproj.AssemblyReference.cache
+C:\Users\Ever Corazón\Desktop\Ever Primer Semestre 2024\Modelación y Simulación 1\SimuladorMS1\SimuladorMS1\obj\Debug\SimuladorMS1.Form1.resources
+C:\Users\Ever Corazón\Desktop\Ever Primer Semestre 2024\Modelación y Simulación 1\SimuladorMS1\SimuladorMS1\obj\Debug\SimuladorMS1.Form2.resources
+C:\Users\Ever Corazón\Desktop\Ever Primer Semestre 2024\Modelación y Simulación 1\SimuladorMS1\SimuladorMS1\obj\Debug\SimuladorMS1.Properties.Resources.resources
+C:\Users\Ever Corazón\Desktop\Ever Primer Semestre 2024\Modelación y Simulación 1\SimuladorMS1\SimuladorMS1\obj\Debug\SimuladorMS1.Simulador.resources
+C:\Users\Ever Corazón\Desktop\Ever Primer Semestre 2024\Modelación y Simulación 1\SimuladorMS1\SimuladorMS1\obj\Debug\SimuladorMS1.csproj.GenerateResource.cache
+C:\Users\Ever Corazón\Desktop\Ever Primer Semestre 2024\Modelación y Simulación 1\SimuladorMS1\SimuladorMS1\obj\Debug\SimuladorMS1.csproj.CoreCompileInputs.cache
+C:\Users\Ever Corazón\Desktop\Ever Primer Semestre 2024\Modelación y Simulación 1\SimuladorMS1\SimuladorMS1\obj\Debug\SimuladorMS1.exe
+C:\Users\Ever Corazón\Desktop\Ever Primer Semestre 2024\Modelación y Simulación 1\SimuladorMS1\SimuladorMS1\obj\Debug\SimuladorMS1.pdb
+C:\Users\Ever Corazón\Desktop\Ever Primer Semestre 2024\Modelación y Simulación 1\SimuladorMS1\SimuladorMS1\bin\Debug\SimuladorMS1.exe.config
+C:\Users\Ever Corazón\Desktop\Ever Primer Semestre 2024\Modelación y Simulación 1\SimuladorMS1\SimuladorMS1\bin\Debug\SimuladorMS1.exe
+C:\Users\Ever Corazón\Desktop\Ever Primer Semestre 2024\Modelación y Simulación 1\SimuladorMS1\SimuladorMS1\bin\Debug\SimuladorMS1.pdb
+C:\Users\Ever Corazón\Desktop\Ever Primer Semestre 2024\Modelación y Simulación 1\SimuladorMS1\SimuladorMS1\obj\Debug\SimuladorMS1.frmHoras.resources
+C:\Users\Ever Corazón\Desktop\Ever Primer Semestre 2024\Modelación y Simulación 1\SimuladorMS1\SimuladorMS1\obj\Debug\SimuladorMS1.frmClientes.resources
