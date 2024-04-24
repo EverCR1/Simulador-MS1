@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.txtMedia = new System.Windows.Forms.TextBox();
             this.btnSimular = new System.Windows.Forms.Button();
             this.dataGeneral = new System.Windows.Forms.DataGridView();
@@ -39,14 +40,13 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.txtHoras = new System.Windows.Forms.TextBox();
-            this.dgvDetallesHora = new System.Windows.Forms.DataGridView();
-            this.dgvDetallesProducto = new System.Windows.Forms.DataGridView();
+            this.labelEscenario = new System.Windows.Forms.Label();
+            this.progressBar = new System.Windows.Forms.ProgressBar();
+            this.timerProgreso = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGeneral)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDetallesHora)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDetallesProducto)).BeginInit();
             this.SuspendLayout();
             // 
             // txtMedia
@@ -77,12 +77,12 @@
             this.dataGeneral.AllowUserToAddRows = false;
             this.dataGeneral.AllowUserToDeleteRows = false;
             this.dataGeneral.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGeneral.Location = new System.Drawing.Point(95, 220);
+            this.dataGeneral.Location = new System.Drawing.Point(95, 292);
             this.dataGeneral.Margin = new System.Windows.Forms.Padding(4);
             this.dataGeneral.Name = "dataGeneral";
             this.dataGeneral.ReadOnly = true;
             this.dataGeneral.RowHeadersWidth = 51;
-            this.dataGeneral.Size = new System.Drawing.Size(385, 295);
+            this.dataGeneral.Size = new System.Drawing.Size(1197, 532);
             this.dataGeneral.TabIndex = 2;
             this.dataGeneral.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGeneral_CellDoubleClick);
             // 
@@ -172,32 +172,29 @@
             this.txtHoras.TabIndex = 0;
             this.txtHoras.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtHoras_KeyPress);
             // 
-            // dgvDetallesHora
+            // labelEscenario
             // 
-            this.dgvDetallesHora.AllowUserToAddRows = false;
-            this.dgvDetallesHora.AllowUserToDeleteRows = false;
-            this.dgvDetallesHora.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDetallesHora.Location = new System.Drawing.Point(515, 220);
-            this.dgvDetallesHora.Margin = new System.Windows.Forms.Padding(4);
-            this.dgvDetallesHora.Name = "dgvDetallesHora";
-            this.dgvDetallesHora.ReadOnly = true;
-            this.dgvDetallesHora.RowHeadersWidth = 51;
-            this.dgvDetallesHora.Size = new System.Drawing.Size(385, 295);
-            this.dgvDetallesHora.TabIndex = 6;
-            this.dgvDetallesHora.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetallesHora_CellDoubleClick);
+            this.labelEscenario.AutoSize = true;
+            this.labelEscenario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelEscenario.Location = new System.Drawing.Point(631, 241);
+            this.labelEscenario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelEscenario.Name = "labelEscenario";
+            this.labelEscenario.Size = new System.Drawing.Size(126, 25);
+            this.labelEscenario.TabIndex = 6;
+            this.labelEscenario.Text = "Escenario 1";
             // 
-            // dgvDetallesProducto
+            // progressBar
             // 
-            this.dgvDetallesProducto.AllowUserToAddRows = false;
-            this.dgvDetallesProducto.AllowUserToDeleteRows = false;
-            this.dgvDetallesProducto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDetallesProducto.Location = new System.Drawing.Point(939, 220);
-            this.dgvDetallesProducto.Margin = new System.Windows.Forms.Padding(4);
-            this.dgvDetallesProducto.Name = "dgvDetallesProducto";
-            this.dgvDetallesProducto.ReadOnly = true;
-            this.dgvDetallesProducto.RowHeadersWidth = 51;
-            this.dgvDetallesProducto.Size = new System.Drawing.Size(385, 295);
-            this.dgvDetallesProducto.TabIndex = 7;
+            this.progressBar.Location = new System.Drawing.Point(390, 412);
+            this.progressBar.Name = "progressBar";
+            this.progressBar.Size = new System.Drawing.Size(640, 142);
+            this.progressBar.TabIndex = 7;
+            this.progressBar.Visible = false;
+            // 
+            // timerProgreso
+            // 
+            this.timerProgreso.Interval = 1000;
+            this.timerProgreso.Tick += new System.EventHandler(this.timerProgreso_Tick_1);
             // 
             // Simulador
             // 
@@ -205,8 +202,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1617, 1102);
-            this.Controls.Add(this.dgvDetallesProducto);
-            this.Controls.Add(this.dgvDetallesHora);
+            this.Controls.Add(this.progressBar);
+            this.Controls.Add(this.labelEscenario);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -223,9 +220,8 @@
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDetallesHora)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDetallesProducto)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -242,7 +238,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtHoras;
         public System.Windows.Forms.DataGridView dataGeneral;
-        public System.Windows.Forms.DataGridView dgvDetallesHora;
-        public System.Windows.Forms.DataGridView dgvDetallesProducto;
+        private System.Windows.Forms.Label labelEscenario;
+        private System.Windows.Forms.ProgressBar progressBar;
+        private System.Windows.Forms.Timer timerProgreso;
     }
 }

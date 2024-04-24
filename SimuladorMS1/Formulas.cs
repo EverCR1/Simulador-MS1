@@ -20,6 +20,11 @@ namespace SimuladorMS1
 
         public double e = 2.7182818284; // Número de Euler
 
+        public static int escenario { get; set; }
+        public static int cantMedia { get; set; }
+        public static int cantProductos { get; set; }
+        public static int idHora { get; set; }
+
         public int horas { get; set; }
 
 

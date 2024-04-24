@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace SimuladorMS1
 {
@@ -15,20 +16,9 @@ namespace SimuladorMS1
         Operaciones operaciones = new Operaciones();
         Formulas formulas = new Formulas();
         ErrorProvider errorP = new ErrorProvider();
-        // Tablas temporales
-        DataTable tableGeneral = new DataTable();
-        DataTable tableHoras = new DataTable();
-        DataTable tableClientes = new DataTable();
-
-        public List<int> listGeneral = new List<int>(); // Lista para almacenar los valores generados
-        public List<(int clientId, int clientValue)> listClient = new List<(int, int)>();
-
-        public Dictionary<int, List<int>> linkedValues = new Dictionary<int, List<int>>();
-
-        List<(int, float, float)> listaTotales = new List<(int, float, float)>();
 
         int ide;
-
+        int servi = 4; /*escen = 1;*/
         int media, lambda, horas, productosC;
         public Simulador()
         {
@@ -39,38 +29,20 @@ namespace SimuladorMS1
         {
             if (VerificarTextBoxLlenos())
             {
+                operaciones.eliminarEscenarios();
                 getDataForm();
-                fillListGeneral();
-                fillListClient();
-                FillLinkedValues();
-                fillGeneralTable(horas, media);
-                // Imprimir registros de listGeneral
-                Console.WriteLine("Registros de listGeneral:");
-                foreach (int value in listGeneral)
-                {
-                    Console.WriteLine(value);
-                }
+                operaciones.crearEscenarios(horas, media, productosC);
 
-                // Imprimir registros de listClient
-                Console.WriteLine("\nRegistros de listClient:");
-                foreach ((int clientId, int clientValue) in listClient)
-                {
-                    Console.WriteLine($"ClientId: {clientId}, ClientValue: {clientValue}");
-                }
+                // Mostrar la barra de progreso
+                progressBar.Visible = true;
+                progressBar.Maximum = 5; // 5 segundos
+                progressBar.Value = 0;
 
-                // Imprimir registros de linkedValues
-                Console.WriteLine("\nRegistros de linkedValues:");
-                foreach (var kvp in linkedValues)
-                {
-                    Console.WriteLine($"Key: {kvp.Key}");
-                    Console.WriteLine("Values:");
-                    foreach (int value in kvp.Value)
-                    {
-                        Console.WriteLine(value);
-                    }
-                }
+                // Habilitar el temporizador para actualizar la barra de progreso
+                timerProgreso.Enabled = true;
 
-
+                // Esperar 5 segundos antes de continuar
+                timerProgreso.Start();
             }
             else
             {
@@ -79,73 +51,22 @@ namespace SimuladorMS1
             
         }
 
-        public void fillListGeneral()
-        {
-            // Limpiar la lista antes de llenarla
-            listGeneral.Clear();
-
-            // Iterar desde 1 hasta el valor de txtHoras
-            for (int i = 1; i <= horas; i++)
-            {
-                // Generar un número aleatorio y agregarlo a la lista junto con un identificador único
-                int randomNumber = operaciones.setNumber(1, media); 
-                listGeneral.Add((randomNumber));
-            }
-        }
-
-        public void fillListClient()
-        {
-            // Limpiar la lista antes de llenarla
-            listClient.Clear();
-
-            int clientIdCounter = 0; // Contador para generar identificadores únicos
-
-            foreach (int general in listGeneral)
-            {
-                for (int i = 1; i <= general; i++)
-                {
-                    // Generar un número aleatorio y agregarlo a la lista junto con un identificador único
-                    int randomNumber = operaciones.setNumber(1, productosC);
-                    int clientId = ++clientIdCounter; // Incrementar el contador para obtener un identificador único
-                    listClient.Add((clientId, randomNumber));
-                }
-            }
-        }
-
-
-        private void FillLinkedValues()
-        {
-            // Limpiar el diccionario antes de llenarlo
-            linkedValues.Clear();
-
-            // Iterar sobre los valores de listClient
-            foreach ((int clientId, int clientValue) in listClient)
-            {
-                // Generar una lista de valores aleatorios para cada valor de listClient
-                List<int> randomValues = new List<int>();
-
-                // Usar el valor de clientValue como la cantidad de valores aleatorios a generar
-                for (int i = 0; i < clientValue; i++)
-                {
-                    int randomNumber = operaciones.setNumber(1, 62); 
-                    randomValues.Add(randomNumber);
-                    
-                }
-
-                // Agregar la lista de valores aleatorios al diccionario, vinculada al valor de listClient
-                linkedValues.Add(clientId, randomValues);
-            }
-        }
         private void dataGeneral_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Verificar si la celda seleccionada es válida y es λ
-            if (e.ColumnIndex == dataGeneral.Columns["λ"].Index && e.RowIndex >= 0)
+            // Verificar si la celda clickeada está dentro de los límites del DataGridView
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
             {
-                // Obtener el valor de la celda seleccionada
-                int numero = Convert.ToInt32(dataGeneral.Rows[e.RowIndex].Cells[e.ColumnIndex].Value);
+                frmHoras frmHoras = new frmHoras();
+                
+                // Obtener el valor de la primera columna (índice 0)
+                int hora = Convert.ToInt32(dataGeneral.Rows[e.RowIndex].Cells[0].Value);
+                Formulas.idHora = hora;
+                // Obtener el valor de la segunda columna (índice 1)
+                int clientes = Convert.ToInt32(dataGeneral.Rows[e.RowIndex].Cells[1].Value);
 
-                //fillHoursTable(numero);
-                fillHoursTable2(numero);
+                frmHoras.dataHoras.DataSource = operaciones.getHora(Formulas.escenario, hora, clientes);
+
+                frmHoras.ShowDialog();
             }
 
         }
@@ -221,205 +142,46 @@ namespace SimuladorMS1
             }
         }
 
-        public void fillGeneralTable(int horas, int med)
+
+
+
+        public void getEscenario(int escenario, int servicio)
         {
-            // Limpiar la tabla antes de agregar nuevos datos
-            tableGeneral.Rows.Clear();
+            DataTable escenarioTable = operaciones.getEscenario(escenario, servicio);
 
-            // Asegurarse de que las columnas de la tabla estén definidas
-            if (tableGeneral.Columns.Count == 0)
-            {
-                tableGeneral.Columns.Add("Hora", typeof(int));
-                tableGeneral.Columns.Add("λ", typeof(int));
-                tableGeneral.Columns.Add("µ", typeof(int));
-                tableGeneral.Columns.Add("Ingreso/Hora", typeof(int));
-
-            }
-
-            // Calcular y agregar los datos a la tabla
-            for (int i = 1; i <= horas; i++)
-            {
-                //lambda = operaciones.setNumber(0, med);
-
-                // Obtener el valor de clientValue para la hora actual
-                int lamb = listGeneral[i - 1]; 
-
-                // Agregar fila a la tabla
-                tableGeneral.Rows.Add(i, lamb, med, 1);
-            }
-
-            // Asignar la tabla como origen de datos del DataGridView
-            dataGeneral.DataSource = tableGeneral;
+            dataGeneral.DataSource = escenarioTable;
         }
 
-
-        
-        private void dgvDetallesHora_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void timerProgreso_Tick_1(object sender, EventArgs e)
         {
-            // Verificar si la celda seleccionada es válida y es Productos
-            if (e.ColumnIndex == dgvDetallesHora.Columns["Productos"].Index && e.RowIndex >= 0)
-            {
-                // Obtener el valor de la celda seleccionada
-                int numero = Convert.ToInt32(dgvDetallesHora.Rows[e.RowIndex].Cells[e.ColumnIndex].Value);
+            // Incrementar el valor de la barra de progreso
+            progressBar.Value++;
 
-                fillCustomerTable(numero);
-                
+            // Si han pasado 5 segundos, detener el temporizador y ocultar la barra de progreso
+            if (progressBar.Value >= progressBar.Maximum)
+            {
+                timerProgreso.Stop();
+                progressBar.Visible = false;
+
+                // Realizar las operaciones después de que termine la barra de progreso
+                Formulas.escenario = 1;
+                getEscenario(Formulas.escenario, 4);
             }
         }
 
-       
-        public void fillHoursTable(int num)
+        public void getHora(int escenario, int hora, int clientes)
         {
-            frmHoras frmHoras = new frmHoras();
-            // Limpiar el DataGridView antes de agregar nuevos datos
-            frmHoras.dataHoras.Rows.Clear();
+            DataTable escenarioTable = operaciones.getHora(escenario, hora, clientes);
 
-            // Define las columnas del DataGridView si aún no están definidas
-            if (frmHoras.dataHoras.Columns.Count == 0)
-            {
-                frmHoras.dataHoras.Columns.Add("No.", "No.");
-                frmHoras.dataHoras.Columns.Add("Productos", "Productos");
-                frmHoras.dataHoras.Columns.Add("Total Costo", "Total Costo");
-                frmHoras.dataHoras.Columns.Add("Total Venta", "Total Venta");
-                frmHoras.dataHoras.Columns.Add("Utilidad", "Utilidad");
-            }
-
-            // Calcular y agregar los datos al DataGridView
-            for (int i = 1; i <= num; i++)
-            {
-                // Obtener el producto correspondiente al cliente actual desde listClient
-                int clientId = i; // El id de la celda es igual al índice + 1
-                int clientValue = listClient[clientId - 1].clientValue; // Restar 1 para ajustar el índice
-
-                // Agregar fila al DataGridView con los datos obtenidos
-                frmHoras.dataHoras.Rows.Add(i, clientValue, 1.2, 3, 4);
-            }
-
-            frmHoras.ShowDialog();
-
+            dataGeneral.DataSource = escenarioTable;
         }
 
-        public void fillHoursTable2(int num)
+        public void getProductoCliente(int escenario, int hora, int idCliente)
         {
-            
-            // Limpiar el DataGridView antes de agregar nuevos datos
-            dgvDetallesHora.Rows.Clear();
+            DataTable escenarioTable = operaciones.getHora(escenario, hora, idCliente);
 
-            // Define las columnas del DataGridView si aún no están definidas
-            if (dgvDetallesHora.Columns.Count == 0)
-            {
-                dgvDetallesHora.Columns.Add("No.", "No.");
-                dgvDetallesHora.Columns.Add("Productos", "Productos");
-                dgvDetallesHora.Columns.Add("Total Costo", "Total Costo");
-                dgvDetallesHora.Columns.Add("Total Venta", "Total Venta");
-                dgvDetallesHora.Columns.Add("Utilidad", "Utilidad");
-            }
-
-            // Calcular y agregar los datos al DataGridView
-            for (int i = 1; i <= num; i++)
-            {
-                // Obtener el producto correspondiente al cliente actual desde listClient
-                int clientId = i; // El id de la celda es igual al índice + 1
-                int clientValue = listClient[clientId - 1].clientValue; // Restar 1 para ajustar el índice
-
-                // Agregar fila al DataGridView con los datos obtenidos
-                dgvDetallesHora.Rows.Add(i, clientValue, 1.2, 3, 4);
-            }
-
-            
-
+            dataGeneral.DataSource = escenarioTable;
         }
-        //public int getSelectedClientIdFromDetallesHora()
-        //{
-        //    // Obtener la instancia actual del formulario frmHoras
-        //    frmHoras frmHoras = Application.OpenForms.OfType<frmHoras>().FirstOrDefault();
-
-        //    // Verificar si se encontró una instancia válida de frmHoras
-        //    if (frmHoras != null)
-        //    {
-        //        // Obtener la fila seleccionada del DataGridView en frmHoras
-        //        int selectedRow = frmHoras.dataHoras.CurrentRow.Index;
-
-        //        // Obtener el clientId de la fila seleccionada
-        //        int clientId = Convert.ToInt32(frmHoras.dataHoras.Rows[selectedRow].Cells[0].Value);
-
-        //        return clientId;
-        //    }
-        //    else
-        //    {
-        //        // Si no se encontró una instancia válida de frmHoras, devolver un valor predeterminado o manejar el caso según sea necesario
-        //        // Aquí devolvemos -1 como valor predeterminado
-        //        return -1;
-        //    }
-        //}
-
-        public int getSelectedClientIdFromDetallesHora()
-        {
-            frmHoras frmHoras = new frmHoras();
-
-            int selectedRow = frmHoras.dataHoras.CurrentRow.Index;
-            int clientId = Convert.ToInt32(frmHoras.dataHoras.Rows[selectedRow].Cells[0].Value);
-            return clientId;
-
-        }
-
-        public int getClientId()
-        {
-            int selectedRow = dgvDetallesHora.CurrentRow.Index;
-            int clientId = Convert.ToInt32(dgvDetallesHora.Rows[selectedRow].Cells[0].Value);
-            return clientId;
-            
-        }
-        public void fillCustomerTable(int num)
-        {
-            //frmClientes frmClientes = new frmClientes();
-            // Limpiar el DataGridView antes de agregar nuevos datos
-            dgvDetallesProducto.Rows.Clear();
-
-            // Define las columnas del DataGridView si aún no están definidas
-            if (dgvDetallesProducto.Columns.Count == 0)
-            {
-                dgvDetallesProducto.Columns.Add("No", "No");
-                dgvDetallesProducto.Columns.Add("Producto", "Producto");
-                dgvDetallesProducto.Columns.Add("Costo", "Costo");
-                dgvDetallesProducto.Columns.Add("Venta", "Venta");
-                dgvDetallesProducto.Columns.Add("Utilidad", "Utilidad");
-            }
-
-            // Obtener el clientId seleccionado en dgvDetallesHora
-            int clientId = getClientId();
-            
-            // Calcular y agregar los datos a la serie vinculados al clientId seleccionado
-            if (linkedValues.ContainsKey(clientId))
-            {
-                List<int> products = linkedValues[clientId];
-                for (int i = 0; i < products.Count; i++)
-                {
-                    int productId = products[i];
-                    // Obtener los datos del producto según el productId
-                    DataTable productoData = operaciones.getProducto(productId);
-                    if (productoData.Rows.Count > 0)
-                    {
-                        string nombre = Convert.ToString(productoData.Rows[0]["producto"]);
-                        float precioCosto = Convert.ToSingle(productoData.Rows[0]["precio_costo"]);
-                        float precioVenta = Convert.ToSingle(productoData.Rows[0]["precio_venta"]);
-                        float utilidad = Convert.ToSingle(productoData.Rows[0]["utilidad"]);
-
-                        // Agregar fila al DataGridView con los datos obtenidos
-                        dgvDetallesProducto.Rows.Add(i + 1, nombre, precioCosto, precioVenta, utilidad);
-                    }
-                    else
-                    {
-                        // Si no se encontró el producto, agregar valores predeterminados
-                        dgvDetallesProducto.Rows.Add(i + 1, "No Disponible", "No Disponible", "No Disponible", "No Disponible");
-                    }
-                }
-            }
-
-            //frmClientes.ShowDialog();
-        }
-
-
 
 
         public bool VerificarTextBoxLlenos()
