@@ -17,31 +17,31 @@ namespace SimuladorMS1
         Formulas formulas = new Formulas();
         ErrorProvider errorP = new ErrorProvider();
 
-        int ide;
-        int servi = 4; /*escen = 1;*/
-        int media, lambda, horas, productosC;
         public Simulador()
         {
             InitializeComponent();
         }
 
+        // Acciones al presionar el botón Simular
         private void btnSimular_Click(object sender, EventArgs e)
         {
             if (VerificarTextBoxLlenos())
             {
                 operaciones.eliminarEscenarios();
                 getDataForm();
-                operaciones.crearEscenarios(horas, media, productosC);
+                operaciones.crearEscenarios(Formulas.horas, Formulas.mediaClientes, Formulas.mediaProductos);
+                Formulas.escenario = 1;
+                Formulas.tiempoServicio = 3;
 
                 // Mostrar la barra de progreso
                 progressBar.Visible = true;
-                progressBar.Maximum = 5; // 5 segundos
-                progressBar.Value = 0;
+                progressBar.Maximum = 4; // 4 segundos
+                progressBar.Value = 1;
 
                 // Habilitar el temporizador para actualizar la barra de progreso
                 timerProgreso.Enabled = true;
 
-                // Esperar 5 segundos antes de continuar
+                // Esperar 3 segundos antes de continuar
                 timerProgreso.Start();
             }
             else
@@ -51,6 +51,7 @@ namespace SimuladorMS1
             
         }
 
+        // Evento al presionar una celda de la tabla General
         private void dataGeneral_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             // Verificar si la celda clickeada está dentro de los límites del DataGridView
@@ -59,26 +60,31 @@ namespace SimuladorMS1
                 frmHoras frmHoras = new frmHoras();
                 
                 // Obtener el valor de la primera columna (índice 0)
-                int hora = Convert.ToInt32(dataGeneral.Rows[e.RowIndex].Cells[0].Value);
-                Formulas.idHora = hora;
+                int idHora = Convert.ToInt32(dataGeneral.Rows[e.RowIndex].Cells[0].Value);
+                Formulas.idHora = idHora;
+
                 // Obtener el valor de la segunda columna (índice 1)
                 int clientes = Convert.ToInt32(dataGeneral.Rows[e.RowIndex].Cells[1].Value);
 
-                frmHoras.dataHoras.DataSource = operaciones.getHora(Formulas.escenario, hora, clientes);
+                frmHoras.dataHoras.DataSource = operaciones.getHora(Formulas.escenario, idHora, clientes);
+                frmHoras.Text = "Hora " + idHora;
 
                 frmHoras.ShowDialog();
             }
 
         }
 
+        // Obtener los valores del formulario
         public void getDataForm()
         {
-            //lambda = Convert.ToInt32(txtLambda.Text);
-            media = Convert.ToInt32(txtProductosCliente.Text);
-            horas = Convert.ToInt32(txtHoras.Text);
-            productosC = Convert.ToInt32(txtMedia.Text);
+            //Formulas.tiempoServicio = Convert.ToInt32(txtTiempoServicio.Text);
+            Formulas.mediaClientes = Convert.ToInt32(txtMedia.Text);
+            Formulas.horas = Convert.ToInt32(txtHoras.Text);
+            Formulas.mediaProductos = Convert.ToInt32(txtProductosCliente.Text);
+            
         }
 
+        // Eventos al ingresar valores al formulario
         private void txtMedia_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
@@ -142,48 +148,98 @@ namespace SimuladorMS1
             }
         }
 
-
-
-
-        public void getEscenario(int escenario, int servicio)
-        {
-            DataTable escenarioTable = operaciones.getEscenario(escenario, servicio);
-
-            dataGeneral.DataSource = escenarioTable;
-        }
-
+        // Generar la barra de carga al simular
         private void timerProgreso_Tick_1(object sender, EventArgs e)
         {
             // Incrementar el valor de la barra de progreso
             progressBar.Value++;
 
-            // Si han pasado 5 segundos, detener el temporizador y ocultar la barra de progreso
+            // Si han pasado 4 segundos, detener el temporizador y ocultar la barra de progreso
             if (progressBar.Value >= progressBar.Maximum)
             {
                 timerProgreso.Stop();
                 progressBar.Visible = false;
 
                 // Realizar las operaciones después de que termine la barra de progreso
-                Formulas.escenario = 1;
-                getEscenario(Formulas.escenario, 4);
+                string esc = Formulas.escenario.ToString();
+                labelEscenario.Text = "Escenario " + esc;
+                getEscenario(Formulas.escenario, Formulas.tiempoServicio);
             }
         }
 
-        public void getHora(int escenario, int hora, int clientes)
+        // Evento al presionar el botón "Anterior"
+        private void btnPrev_Click(object sender, EventArgs e)
         {
-            DataTable escenarioTable = operaciones.getHora(escenario, hora, clientes);
+            
+            if(Formulas.escenario == 1)
+            {
 
-            dataGeneral.DataSource = escenarioTable;
+            }
+            else
+            {
+                Formulas.escenario = Formulas.escenario - 1;
+                string esc = Formulas.escenario.ToString();
+                labelEscenario.Text = "Escenario " + esc;
+                getEscenario(Formulas.escenario, Formulas.tiempoServicio);
+            }
+            
         }
 
-        public void getProductoCliente(int escenario, int hora, int idCliente)
+        // Evento al presionar el botón "Siguiente"
+        private void btnNext_Click(object sender, EventArgs e)
         {
-            DataTable escenarioTable = operaciones.getHora(escenario, hora, idCliente);
+            
+            if(Formulas.escenario == 3)
+            {
 
-            dataGeneral.DataSource = escenarioTable;
+            }
+            else
+            {
+                Formulas.escenario = Formulas.escenario + 1;
+                string esc = Formulas.escenario.ToString();
+                labelEscenario.Text = "Escenario " + esc;
+                getEscenario(Formulas.escenario, Formulas.tiempoServicio);
+            }
+            
         }
 
+        // Obtener el escenario n
+        public void getEscenario(int escenario, int servicio)
+        {
+            DataTable escenarioTable = operaciones.getEscenario(escenario, servicio);
 
+            dataGeneral.DataSource = escenarioTable;
+
+            cumpleGanancia(); // Verificar si la ganancia por hora es mayor al gasto por hora
+        }
+
+        // Resaltar la celda Ganancia para cada hora
+        public void cumpleGanancia()
+        {
+            float totalGastos = operaciones.getGastoTotal();
+            float gastoHora = totalGastos / 30 / Formulas.horas;
+
+            // Iterar sobre las filas del DataGridView
+            foreach (DataGridViewRow row in dataGeneral.Rows)
+            {
+                // Obtener el valor de la celda en la columna 4 (índice 3)
+                float valorCelda;
+                if (float.TryParse(row.Cells[3].Value?.ToString(), out valorCelda))
+                {
+                    // Resaltar la celda según el valor
+                    if (valorCelda >= gastoHora)
+                    {
+                        row.Cells[3].Style.BackColor = Color.LightGreen; // Verde si cumple la ganancia
+                    }
+                    else
+                    {
+                        row.Cells[3].Style.BackColor = Color.LightCoral; // Rojo si no cumple la ganancia
+                    }
+                }
+            }
+        }
+
+        // Validar que no existan campos nulos
         public bool VerificarTextBoxLlenos()
         {
 
