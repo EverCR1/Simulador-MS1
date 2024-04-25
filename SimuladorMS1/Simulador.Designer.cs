@@ -43,6 +43,8 @@
             this.labelEscenario = new System.Windows.Forms.Label();
             this.progressBar = new System.Windows.Forms.ProgressBar();
             this.timerProgreso = new System.Windows.Forms.Timer(this.components);
+            this.btnPrev = new System.Windows.Forms.Button();
+            this.btnNext = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGeneral)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -104,9 +106,9 @@
             this.label2.Location = new System.Drawing.Point(23, 19);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(348, 25);
+            this.label2.Size = new System.Drawing.Size(347, 25);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Promedio de Clientes por Hora (µ):";
+            this.label2.Text = "Promedio de Clientes por Hora (λ):";
             // 
             // label1
             // 
@@ -196,12 +198,40 @@
             this.timerProgreso.Interval = 1000;
             this.timerProgreso.Tick += new System.EventHandler(this.timerProgreso_Tick_1);
             // 
+            // btnPrev
+            // 
+            this.btnPrev.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.btnPrev.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrev.Location = new System.Drawing.Point(465, 868);
+            this.btnPrev.Margin = new System.Windows.Forms.Padding(4);
+            this.btnPrev.Name = "btnPrev";
+            this.btnPrev.Size = new System.Drawing.Size(157, 62);
+            this.btnPrev.TabIndex = 8;
+            this.btnPrev.Text = "Anterior";
+            this.btnPrev.UseVisualStyleBackColor = false;
+            this.btnPrev.Click += new System.EventHandler(this.btnPrev_Click);
+            // 
+            // btnNext
+            // 
+            this.btnNext.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.btnNext.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNext.Location = new System.Drawing.Point(702, 868);
+            this.btnNext.Margin = new System.Windows.Forms.Padding(4);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(157, 62);
+            this.btnNext.TabIndex = 9;
+            this.btnNext.Text = "Siguiente";
+            this.btnNext.UseVisualStyleBackColor = false;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
+            // 
             // Simulador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1617, 1102);
+            this.Controls.Add(this.btnNext);
+            this.Controls.Add(this.btnPrev);
             this.Controls.Add(this.progressBar);
             this.Controls.Add(this.labelEscenario);
             this.Controls.Add(this.panel3);
@@ -241,5 +271,7 @@
         private System.Windows.Forms.Label labelEscenario;
         private System.Windows.Forms.ProgressBar progressBar;
         private System.Windows.Forms.Timer timerProgreso;
+        private System.Windows.Forms.Button btnPrev;
+        private System.Windows.Forms.Button btnNext;
     }
 }
