@@ -36,21 +36,25 @@
             // 
             this.dataClientes.AllowUserToAddRows = false;
             this.dataClientes.AllowUserToDeleteRows = false;
+            this.dataClientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataClientes.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataClientes.Location = new System.Drawing.Point(70, 61);
+            this.dataClientes.Location = new System.Drawing.Point(52, 50);
+            this.dataClientes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataClientes.Name = "dataClientes";
             this.dataClientes.ReadOnly = true;
             this.dataClientes.RowHeadersWidth = 51;
             this.dataClientes.RowTemplate.Height = 24;
-            this.dataClientes.Size = new System.Drawing.Size(660, 329);
+            this.dataClientes.Size = new System.Drawing.Size(495, 267);
             this.dataClientes.TabIndex = 1;
             // 
             // frmClientes
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(600, 366);
             this.Controls.Add(this.dataClientes);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmClientes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cliente";
