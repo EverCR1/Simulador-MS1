@@ -22,7 +22,7 @@ namespace SimuladorMS1
             InitializeComponent();
             dataGeneral.DefaultCellStyle.Font = new Font("Arial", 12);
             // Cambiar el color de fondo de la primera fila
-            dataGeneral.Rows[0].DefaultCellStyle.BackColor = Color.LightBlue;
+            //dataGeneral.Rows[0].DefaultCellStyle.BackColor = Color.LightBlue;
         }
 
         // Acciones al presionar el botón Simular
@@ -259,5 +259,6 @@ namespace SimuladorMS1
                 return false;
             }
         }
+
     }
 }

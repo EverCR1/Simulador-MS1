@@ -21,7 +21,7 @@ namespace SimuladorMS1
 
             dataHoras.DefaultCellStyle.Font = new Font("Arial", 12);
             // Cambiar el color de fondo de la primera fila
-            dataHoras.Rows[0].DefaultCellStyle.BackColor = Color.LightBlue;
+            //dataHoras.Rows[0].DefaultCellStyle.BackColor = Color.LightBlue;
         }
 
         // Evento al presionar una celda de la tabla Hora

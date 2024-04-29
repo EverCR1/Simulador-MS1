@@ -19,7 +19,7 @@ namespace SimuladorMS1
 
             dataClientes.DefaultCellStyle.Font = new Font("Arial", 12);
             // Cambiar el color de fondo de la primera fila
-            dataClientes.Rows[0].DefaultCellStyle.BackColor = Color.LightBlue;
+            //dataClientes.Rows[0].DefaultCellStyle.BackColor = Color.LightBlue;
         }
     }
 }
