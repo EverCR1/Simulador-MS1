@@ -40,6 +40,7 @@
             this.dataClientes.AllowUserToDeleteRows = false;
             this.dataClientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataClientes.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dataClientes.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -61,6 +62,7 @@
             this.dataClientes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataClientes.Name = "dataClientes";
             this.dataClientes.ReadOnly = true;
+            this.dataClientes.RowHeadersVisible = false;
             this.dataClientes.RowHeadersWidth = 51;
             this.dataClientes.RowTemplate.Height = 24;
             this.dataClientes.Size = new System.Drawing.Size(660, 329);
