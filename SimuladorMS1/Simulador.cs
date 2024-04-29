@@ -31,7 +31,6 @@ namespace SimuladorMS1
                 getDataForm();
                 operaciones.crearEscenarios(Formulas.horas, Formulas.mediaClientes, Formulas.mediaProductos);
                 Formulas.escenario = 1;
-                Formulas.tiempoServicio = 3;
 
                 // Mostrar la barra de progreso
                 progressBar.Visible = true;
@@ -77,11 +76,14 @@ namespace SimuladorMS1
         // Obtener los valores del formulario
         public void getDataForm()
         {
-            //Formulas.tiempoServicio = Convert.ToInt32(txtTiempoServicio.Text);
             Formulas.mediaClientes = Convert.ToInt32(txtMedia.Text);
+            Formulas.tiempoServicio = Convert.ToInt32(txtServicio.Text);
             Formulas.horas = Convert.ToInt32(txtHoras.Text);
             Formulas.mediaProductos = Convert.ToInt32(txtProductosCliente.Text);
-            
+
+            Formulas.λ = Convert.ToDouble(txtMedia.Text);
+            Formulas.µ = Convert.ToDouble(txtServicio.Text);
+
         }
 
         // Eventos al ingresar valores al formulario
@@ -91,6 +93,27 @@ namespace SimuladorMS1
             {
                 e.Handled = true; // Bloquea la tecla presionada
                 errorP.SetError(txtMedia, "Solo se permiten números enteros");
+            }
+            else
+            {
+                errorP.Clear();
+            }
+
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                errorP.Clear();
+                txtServicio.Focus();
+                e.Handled = true;
+
+            }
+        }
+
+        private void txtServicio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true; // Bloquea la tecla presionada
+                errorP.SetError(txtServicio, "Solo se permiten números enteros");
             }
             else
             {
@@ -164,6 +187,8 @@ namespace SimuladorMS1
                 string esc = Formulas.escenario.ToString();
                 labelEscenario.Text = "Escenario " + esc;
                 getEscenario(Formulas.escenario, Formulas.tiempoServicio);
+                btnMM1.Visible = true;
+                btnGraficas.Visible = true;
             }
         }
 
@@ -244,6 +269,7 @@ namespace SimuladorMS1
         {
 
             if (!string.IsNullOrWhiteSpace(txtMedia.Text) &&
+                !string.IsNullOrWhiteSpace(txtServicio.Text) &&
                 !string.IsNullOrWhiteSpace(txtProductosCliente.Text) &&
                 !string.IsNullOrWhiteSpace(txtHoras.Text)
             )
@@ -257,5 +283,16 @@ namespace SimuladorMS1
             }
         }
 
+        private void btnMM1_Click(object sender, EventArgs e)
+        {
+            frmResultados frmResultados = new frmResultados();
+            frmResultados.ShowDialog();
+        }
+
+        private void btnGraficas_Click(object sender, EventArgs e)
+        {
+            frmGraficas frmGraficas = new frmGraficas();
+            frmGraficas.ShowDialog();
+        }
     }
 }
