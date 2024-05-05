@@ -42,27 +42,30 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(29, 31);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(129, 70);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(239, 16);
+            this.label1.Size = new System.Drawing.Size(376, 24);
             this.label1.TabIndex = 0;
             this.label1.Text = "Ingrese la información de nuevo Gasto:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(80, 127);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(145, 157);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(120, 16);
+            this.label2.Size = new System.Drawing.Size(159, 20);
             this.label2.TabIndex = 1;
             this.label2.Text = "Nombre del Gasto:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(80, 184);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(240, 236);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(47, 16);
+            this.label3.Size = new System.Drawing.Size(64, 20);
             this.label3.TabIndex = 2;
             this.label3.Text = "Monto:";
             this.label3.Click += new System.EventHandler(this.label3_Click);
@@ -70,58 +73,63 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(80, 248);
+            this.label4.Location = new System.Drawing.Point(177, 308);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(96, 16);
+            this.label4.Size = new System.Drawing.Size(127, 20);
             this.label4.TabIndex = 3;
             this.label4.Text = "Tipo de Gasto:";
             // 
             // textGasto
             // 
-            this.textGasto.Location = new System.Drawing.Point(217, 127);
+            this.textGasto.Location = new System.Drawing.Point(317, 157);
             this.textGasto.Name = "textGasto";
-            this.textGasto.Size = new System.Drawing.Size(100, 22);
+            this.textGasto.Size = new System.Drawing.Size(154, 26);
             this.textGasto.TabIndex = 4;
             // 
             // textMonto
             // 
-            this.textMonto.Location = new System.Drawing.Point(217, 184);
+            this.textMonto.Location = new System.Drawing.Point(317, 230);
             this.textMonto.Name = "textMonto";
-            this.textMonto.Size = new System.Drawing.Size(100, 22);
+            this.textMonto.Size = new System.Drawing.Size(154, 26);
             this.textMonto.TabIndex = 5;
             // 
             // textTipo
             // 
-            this.textTipo.Location = new System.Drawing.Point(217, 245);
+            this.textTipo.Location = new System.Drawing.Point(317, 305);
             this.textTipo.Name = "textTipo";
-            this.textTipo.Size = new System.Drawing.Size(100, 22);
+            this.textTipo.Size = new System.Drawing.Size(154, 26);
             this.textTipo.TabIndex = 6;
             // 
             // Agregar
             // 
-            this.Agregar.Location = new System.Drawing.Point(281, 354);
+            this.Agregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.Agregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Agregar.Location = new System.Drawing.Point(149, 402);
             this.Agregar.Name = "Agregar";
-            this.Agregar.Size = new System.Drawing.Size(124, 49);
+            this.Agregar.Size = new System.Drawing.Size(155, 62);
             this.Agregar.TabIndex = 7;
             this.Agregar.Text = "Agregar";
-            this.Agregar.UseVisualStyleBackColor = true;
+            this.Agregar.UseVisualStyleBackColor = false;
             this.Agregar.Click += new System.EventHandler(this.Agregar_Click);
             // 
             // cancelar
             // 
-            this.cancelar.Location = new System.Drawing.Point(429, 354);
+            this.cancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cancelar.Location = new System.Drawing.Point(347, 402);
             this.cancelar.Name = "cancelar";
-            this.cancelar.Size = new System.Drawing.Size(127, 49);
+            this.cancelar.Size = new System.Drawing.Size(158, 62);
             this.cancelar.TabIndex = 8;
             this.cancelar.Text = "Cancelar";
-            this.cancelar.UseVisualStyleBackColor = true;
+            this.cancelar.UseVisualStyleBackColor = false;
             this.cancelar.Click += new System.EventHandler(this.cancelar_Click);
             // 
             // AgregarGasto
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.ClientSize = new System.Drawing.Size(651, 518);
             this.Controls.Add(this.cancelar);
             this.Controls.Add(this.Agregar);
             this.Controls.Add(this.textTipo);
@@ -131,7 +139,10 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AgregarGasto";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Agregar Gasto";
             this.ResumeLayout(false);
             this.PerformLayout();
