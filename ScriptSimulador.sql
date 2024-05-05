@@ -30,6 +30,21 @@ CREATE TABLE tb_escenarios (
 	idCliente INT,
     idProducto INT,
 );
+----CREAR PRODUCTO
+CREATE PROCEDURE pCrearProducto(@producto varchar(250), @precio_costo float, @precio_operativo float, 
+@precio_venta float,@porcentaje_ganancia float,@utilidad float)
+AS BEGIN
+    INSERT INTO tb_producto (producto, precio_costo, precio_operativo, precio_venta, porcentaje_ganancia, utilidad)
+    VALUES (@producto, @precio_costo, @precio_operativo, @precio_venta,@porcentaje_ganancia ,@utilidad)
+END
+
+
+----CREAR GASTO
+CREATE PROCEDURE pCrearGasto(@nombreGasto varchar(250), @monto float, @tipoGasto varchar(250))
+AS BEGIN
+    INSERT INTO tb_gasto (nombreGasto, monto, tipoGasto)
+    VALUES (@nombreGasto, @monto, @tipoGasto)
+END
 
 --- INSERTAR REGISTROS INICIALES A LAS TABLAS
 INSERT INTO tb_producto(producto, precio_costo, precio_operativo, precio_venta, porcentaje_ganancia, utilidad)

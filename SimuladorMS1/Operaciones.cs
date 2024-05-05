@@ -11,6 +11,21 @@ namespace SimuladorMS1
 {
     internal class Operaciones
     {
+        
+        public string producto { get; set; }
+        public float precio_costo { get; set; }
+        public float precio_operativo { get; set; }
+        public float precio_venta { get; set; }
+        public float porcentaje_ganancia { get; set; }
+        public float utilidad { get; set; }
+        public string nombreGasto { get; set; }
+        public float monto { get; set; }
+        public string tipoGasto { get; set; }
+
+
+
+
+
         Random random = new Random();
         getProductByIdTableAdapter getProduct = new getProductByIdTableAdapter();
         getEscenarioTableAdapter getScenery = new getEscenarioTableAdapter();
@@ -77,6 +92,34 @@ namespace SimuladorMS1
         public void eliminarEscenarios()
         {
             getQueries.pEliminarEscenarios();
+        }
+
+        public void agregarProducto()
+        {
+            getQueries.pCrearProducto(producto, precio_costo, precio_operativo, precio_venta, porcentaje_ganancia, utilidad);
+        }
+        
+        public void agregarGasto()
+        {
+            getQueries.pCrearGasto(nombreGasto,monto,tipoGasto);
+        }
+        public bool soloNumeros(KeyPressEventArgs e)
+        {
+            if (Char.IsNumber(e.KeyChar))
+            {
+                e.Handled = false;
+                return true;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+                return true;
+            }
+            else
+            {
+                e.Handled = true;
+                return false;
+            }
         }
 
         // Mostrar mensajes de error

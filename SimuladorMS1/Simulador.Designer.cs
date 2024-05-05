@@ -79,7 +79,7 @@
             this.dataGeneral.AllowUserToAddRows = false;
             this.dataGeneral.AllowUserToDeleteRows = false;
             this.dataGeneral.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGeneral.Location = new System.Drawing.Point(95, 292);
+            this.dataGeneral.Location = new System.Drawing.Point(95, 299);
             this.dataGeneral.Margin = new System.Windows.Forms.Padding(4);
             this.dataGeneral.Name = "dataGeneral";
             this.dataGeneral.ReadOnly = true;
