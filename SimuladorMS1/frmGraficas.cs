@@ -10,10 +10,9 @@ using System.Windows.Forms;
 
 namespace SimuladorMS1
 {
-    public partial class frmClientes : Form
+    public partial class frmGraficas : Form
     {
-
-        public frmClientes()
+        public frmGraficas()
         {
             InitializeComponent();
         }
