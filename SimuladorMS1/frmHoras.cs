@@ -33,6 +33,7 @@ namespace SimuladorMS1
                 Formulas.idCliente = idCliente;
 
                 frmClientes.dataClientes.DataSource = operaciones.getProductoCliente(Formulas.escenario, Formulas.idHora, idCliente);
+                frmClientes.dataClientes.Columns[1].Visible = false;
                 frmClientes.Text = "Cliente " + idCliente;
 
                 frmClientes.ShowDialog();

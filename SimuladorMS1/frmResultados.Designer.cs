@@ -108,6 +108,7 @@
             this.Controls.Add(this.labelLq);
             this.Controls.Add(this.labelWq);
             this.Name = "frmResultados";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Resultados del Modelo MM1";
             this.Load += new System.EventHandler(this.frmResultados_Load);
             this.ResumeLayout(false);

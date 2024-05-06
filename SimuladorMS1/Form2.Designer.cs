@@ -28,188 +28,178 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.btnAgregar = new System.Windows.Forms.Button();
-            this.txtProducto = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtPrecioCosto = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtPrecioOperativo = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtPrecioVenta = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtUtilidad = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.panel1.SuspendLayout();
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.tbproductoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bdSimuladorDataSet1 = new SimuladorMS1.bdSimuladorDataSet();
+            this.agregarp = new System.Windows.Forms.Button();
+            this.tb_productoTableAdapter = new SimuladorMS1.bdSimuladorDataSetTableAdapters.tb_productoTableAdapter();
+            this.idProductoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.preciocostoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.preciooperativoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precioventaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.porcentajegananciaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.utilidadDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbproductoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdSimuladorDataSet1)).BeginInit();
             this.SuspendLayout();
             // 
-            // panel1
+            // dataGridView2
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.txtUtilidad);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.txtPrecioVenta);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.txtPrecioOperativo);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.txtPrecioCosto);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.txtProducto);
-            this.panel1.Controls.Add(this.btnAgregar);
-            this.panel1.Location = new System.Drawing.Point(363, 231);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(454, 585);
-            this.panel1.TabIndex = 0;
+            this.dataGridView2.AllowUserToAddRows = false;
+            this.dataGridView2.AllowUserToDeleteRows = false;
+            this.dataGridView2.AutoGenerateColumns = false;
+            this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView2.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idProductoDataGridViewTextBoxColumn,
+            this.productoDataGridViewTextBoxColumn,
+            this.preciocostoDataGridViewTextBoxColumn,
+            this.preciooperativoDataGridViewTextBoxColumn,
+            this.precioventaDataGridViewTextBoxColumn,
+            this.porcentajegananciaDataGridViewTextBoxColumn,
+            this.utilidadDataGridViewTextBoxColumn});
+            this.dataGridView2.DataSource = this.tbproductoBindingSource;
+            this.dataGridView2.Location = new System.Drawing.Point(72, 12);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.ReadOnly = true;
+            this.dataGridView2.RowHeadersWidth = 51;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridView2.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridView2.RowTemplate.Height = 24;
+            this.dataGridView2.Size = new System.Drawing.Size(1151, 652);
+            this.dataGridView2.TabIndex = 1;
+            this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
             // 
-            // btnAgregar
+            // tbproductoBindingSource
             // 
-            this.btnAgregar.BackColor = System.Drawing.SystemColors.Highlight;
-            this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregar.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnAgregar.Location = new System.Drawing.Point(168, 487);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(118, 50);
-            this.btnAgregar.TabIndex = 2;
-            this.btnAgregar.Text = "Agregar";
-            this.btnAgregar.UseVisualStyleBackColor = false;
+            this.tbproductoBindingSource.DataMember = "tb_producto";
+            this.tbproductoBindingSource.DataSource = this.bdSimuladorDataSet1;
             // 
-            // txtProducto
+            // bdSimuladorDataSet1
             // 
-            this.txtProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtProducto.Location = new System.Drawing.Point(33, 57);
-            this.txtProducto.Name = "txtProducto";
-            this.txtProducto.Size = new System.Drawing.Size(393, 29);
-            this.txtProducto.TabIndex = 3;
+            this.bdSimuladorDataSet1.DataSetName = "bdSimuladorDataSet";
+            this.bdSimuladorDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // label1
+            // agregarp
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(29, 30);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(175, 24);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Nombre Producto";
+            this.agregarp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.agregarp.Location = new System.Drawing.Point(565, 700);
+            this.agregarp.Name = "agregarp";
+            this.agregarp.Size = new System.Drawing.Size(260, 65);
+            this.agregarp.TabIndex = 2;
+            this.agregarp.Text = "Agregar Producto";
+            this.agregarp.UseVisualStyleBackColor = true;
+            this.agregarp.Click += new System.EventHandler(this.agregarp_Click);
             // 
-            // label2
+            // tb_productoTableAdapter
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(29, 103);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(129, 24);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Precio Costo";
+            this.tb_productoTableAdapter.ClearBeforeFill = true;
             // 
-            // txtPrecioCosto
+            // idProductoDataGridViewTextBoxColumn
             // 
-            this.txtPrecioCosto.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPrecioCosto.Location = new System.Drawing.Point(33, 130);
-            this.txtPrecioCosto.Name = "txtPrecioCosto";
-            this.txtPrecioCosto.Size = new System.Drawing.Size(393, 29);
-            this.txtPrecioCosto.TabIndex = 5;
+            this.idProductoDataGridViewTextBoxColumn.DataPropertyName = "idProducto";
+            this.idProductoDataGridViewTextBoxColumn.HeaderText = "ID";
+            this.idProductoDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.idProductoDataGridViewTextBoxColumn.Name = "idProductoDataGridViewTextBoxColumn";
+            this.idProductoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idProductoDataGridViewTextBoxColumn.Visible = false;
             // 
-            // label3
+            // productoDataGridViewTextBoxColumn
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(29, 173);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(166, 24);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "Precio Operativo";
+            this.productoDataGridViewTextBoxColumn.DataPropertyName = "producto";
+            this.productoDataGridViewTextBoxColumn.HeaderText = "Producto";
+            this.productoDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.productoDataGridViewTextBoxColumn.Name = "productoDataGridViewTextBoxColumn";
+            this.productoDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // txtPrecioOperativo
+            // preciocostoDataGridViewTextBoxColumn
             // 
-            this.txtPrecioOperativo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPrecioOperativo.Location = new System.Drawing.Point(33, 200);
-            this.txtPrecioOperativo.Name = "txtPrecioOperativo";
-            this.txtPrecioOperativo.Size = new System.Drawing.Size(393, 29);
-            this.txtPrecioOperativo.TabIndex = 7;
+            this.preciocostoDataGridViewTextBoxColumn.DataPropertyName = "precio_costo";
+            this.preciocostoDataGridViewTextBoxColumn.HeaderText = "Precio Costo (Q)";
+            this.preciocostoDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.preciocostoDataGridViewTextBoxColumn.Name = "preciocostoDataGridViewTextBoxColumn";
+            this.preciocostoDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // label4
+            // preciooperativoDataGridViewTextBoxColumn
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(29, 246);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(130, 24);
-            this.label4.TabIndex = 10;
-            this.label4.Text = "Precio Venta";
+            this.preciooperativoDataGridViewTextBoxColumn.DataPropertyName = "precio_operativo";
+            this.preciooperativoDataGridViewTextBoxColumn.HeaderText = "Precio Operativo (Q)";
+            this.preciooperativoDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.preciooperativoDataGridViewTextBoxColumn.Name = "preciooperativoDataGridViewTextBoxColumn";
+            this.preciooperativoDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // txtPrecioVenta
+            // precioventaDataGridViewTextBoxColumn
             // 
-            this.txtPrecioVenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPrecioVenta.Location = new System.Drawing.Point(33, 273);
-            this.txtPrecioVenta.Name = "txtPrecioVenta";
-            this.txtPrecioVenta.Size = new System.Drawing.Size(393, 29);
-            this.txtPrecioVenta.TabIndex = 9;
+            this.precioventaDataGridViewTextBoxColumn.DataPropertyName = "precio_venta";
+            this.precioventaDataGridViewTextBoxColumn.HeaderText = "Precio Venta (Q)";
+            this.precioventaDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.precioventaDataGridViewTextBoxColumn.Name = "precioventaDataGridViewTextBoxColumn";
+            this.precioventaDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // label5
+            // porcentajegananciaDataGridViewTextBoxColumn
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(29, 319);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(79, 24);
-            this.label5.TabIndex = 12;
-            this.label5.Text = "Utilidad";
+            this.porcentajegananciaDataGridViewTextBoxColumn.DataPropertyName = "porcentaje_ganancia";
+            this.porcentajegananciaDataGridViewTextBoxColumn.HeaderText = "Porcentaje Ganancia";
+            this.porcentajegananciaDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.porcentajegananciaDataGridViewTextBoxColumn.Name = "porcentajegananciaDataGridViewTextBoxColumn";
+            this.porcentajegananciaDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // txtUtilidad
+            // utilidadDataGridViewTextBoxColumn
             // 
-            this.txtUtilidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUtilidad.Location = new System.Drawing.Point(33, 346);
-            this.txtUtilidad.Name = "txtUtilidad";
-            this.txtUtilidad.Size = new System.Drawing.Size(393, 29);
-            this.txtUtilidad.TabIndex = 11;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(406, 131);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(374, 31);
-            this.label6.TabIndex = 13;
-            this.label6.Text = "Agregar un Nuevo Producto";
+            this.utilidadDataGridViewTextBoxColumn.DataPropertyName = "utilidad";
+            this.utilidadDataGridViewTextBoxColumn.HeaderText = "Utilidad (Q)";
+            this.utilidadDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.utilidadDataGridViewTextBoxColumn.Name = "utilidadDataGridViewTextBoxColumn";
+            this.utilidadDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // Form2
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1213, 1015);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.panel1);
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.ClientSize = new System.Drawing.Size(1313, 924);
+            this.Controls.Add(this.agregarp);
+            this.Controls.Add(this.dataGridView2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form2";
-            this.Text = "Form2";
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Producto";
+            this.Load += new System.EventHandler(this.Form2_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbproductoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdSimuladorDataSet1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox txtProducto;
-        private System.Windows.Forms.Button btnAgregar;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtUtilidad;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtPrecioVenta;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtPrecioOperativo;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtPrecioCosto;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label6;
+        private bdSimuladorDataSet bdSimuladorDataSet1;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.BindingSource tbproductoBindingSource;
+        private bdSimuladorDataSetTableAdapters.tb_productoTableAdapter tb_productoTableAdapter;
+        private System.Windows.Forms.Button agregarp;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idProductoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn preciocostoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn preciooperativoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn precioventaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn porcentajegananciaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn utilidadDataGridViewTextBoxColumn;
     }
 }

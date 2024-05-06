@@ -24,6 +24,9 @@ namespace SimuladorMS1
         public static int tiempoServicio { get; set; } // Constante del tiempo de servicio
         public static int horas { get; set; } // Constante de la cantidad de horas a Simular
 
+        public static bool simulado { get; set; }
+        
+
         // MODELO MM1
         // Obtener Ls
         public double getLs()
