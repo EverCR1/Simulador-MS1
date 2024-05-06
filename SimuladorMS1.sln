@@ -5,6 +5,13 @@ VisualStudioVersion = 17.7.34024.191
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimuladorMS1", "SimuladorMS1\SimuladorMS1.csproj", "{DDC50D20-5FA2-4E0F-A589-4762A383B181}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Elementos de la solución", "Elementos de la solución", "{415CA80C-0F8E-4FCC-A558-2FECC158A282}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\Simulador-MS1\SimuladorMS1\AgregarGasto.cs = ..\..\..\Simulador-MS1\SimuladorMS1\AgregarGasto.cs
+		..\..\..\Simulador-MS1\SimuladorMS1\AgregarGasto.Designer.cs = ..\..\..\Simulador-MS1\SimuladorMS1\AgregarGasto.Designer.cs
+		..\..\..\Simulador-MS1\SimuladorMS1\AgregarProducto.cs = ..\..\..\Simulador-MS1\SimuladorMS1\AgregarProducto.cs
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

@@ -57,11 +57,22 @@ namespace SimuladorMS1
         private void button1_Click(object sender, EventArgs e)
         {
             AbrirformHija(new Simulador());
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             AbrirformHija(new Form2());
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            AbrirformHija(new Gastos());
+        }
+
+        private void panelContenedor_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

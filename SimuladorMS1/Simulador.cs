@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace SimuladorMS1
@@ -31,6 +32,7 @@ namespace SimuladorMS1
                 getDataForm();
                 operaciones.crearEscenarios(Formulas.horas, Formulas.mediaClientes, Formulas.mediaProductos);
                 Formulas.escenario = 1;
+                Formulas.simulado = true;
 
                 // Mostrar la barra de progreso
                 progressBar.Visible = true;
@@ -48,6 +50,31 @@ namespace SimuladorMS1
                 operaciones.MostrarMensajeError("Debe llenar todos los campos requeridos");
             }
             
+        }
+
+        public void isSimulado()
+        {
+            if (Formulas.simulado)
+            {
+                showScenary();
+                string esc = Formulas.escenario.ToString();
+                labelEscenario.Text = "Escenario " + esc;
+                getEscenario(Formulas.escenario, Formulas.tiempoServicio);
+                btnMM1.Visible = true;
+                btnGraficas.Visible = true;
+
+                getGastoHora();
+                
+                txtMedia.Text = Formulas.mediaClientes.ToString();
+                txtServicio.Text = Formulas.tiempoServicio.ToString();
+                txtProductosCliente.Text = Formulas.mediaProductos.ToString();
+                txtHoras.Text = Formulas.horas.ToString(); 
+  
+            }
+            else
+            {
+
+            }
         }
 
         // Evento al presionar una celda de la tabla General
@@ -183,12 +210,17 @@ namespace SimuladorMS1
                 timerProgreso.Stop();
                 progressBar.Visible = false;
 
+                showScenary();
+
                 // Realizar las operaciones después de que termine la barra de progreso
                 string esc = Formulas.escenario.ToString();
                 labelEscenario.Text = "Escenario " + esc;
                 getEscenario(Formulas.escenario, Formulas.tiempoServicio);
                 btnMM1.Visible = true;
                 btnGraficas.Visible = true;
+
+                getGastoHora();
+                
             }
         }
 
@@ -242,7 +274,7 @@ namespace SimuladorMS1
         public void cumpleGanancia()
         {
             float totalGastos = operaciones.getGastoTotal();
-            float gastoHora = totalGastos / 30 / Formulas.horas;
+            float gastoHora = totalGastos / 30 / 8;
 
             // Iterar sobre las filas del DataGridView
             foreach (DataGridViewRow row in dataGeneral.Rows)
@@ -291,8 +323,97 @@ namespace SimuladorMS1
 
         private void btnGraficas_Click(object sender, EventArgs e)
         {
+            getGraphs();
+        }
+
+        public void getGraphs()
+        {
             frmGraficas frmGraficas = new frmGraficas();
+
+            // Configurar gráfico de barras
+            frmGraficas.chartBarras.ChartAreas.Clear();
+            frmGraficas.chartBarras.Series.Clear();
+            frmGraficas.chartBarras.ChartAreas.Add("ChartArea");
+            frmGraficas.chartBarras.Series.Add("Clientes Por Hora");
+            frmGraficas.chartBarras.Series["Clientes Por Hora"].ChartType = SeriesChartType.Bar;
+
+            // Establecer intervalo de 1 en ambos ejes
+            frmGraficas.chartBarras.ChartAreas[0].AxisX.Interval = 1;
+            frmGraficas.chartBarras.ChartAreas[0].AxisY.Interval = 1;
+
+
+            // Obtener los datos de las columnas "Hora" y "Cantidad de Clientes" del DataGridView
+            foreach (DataGridViewRow row in dataGeneral.Rows)
+            {
+                // Obtener los valores de las columnas
+                int hora = Convert.ToInt32(row.Cells["Hora"].Value);
+                int cantidadClientes = Convert.ToInt32(row.Cells["Cantidad de Clientes"].Value);
+
+                // Crear un color aleatorio para cada barra
+                Random random = new Random();
+                Color color = Color.FromArgb(random.Next(256), random.Next(256), random.Next(256));
+
+                // Agregar los datos al gráfico de barras
+                frmGraficas.chartBarras.Series["Clientes Por Hora"].Points.AddXY(hora, cantidadClientes);
+                frmGraficas.chartBarras.Series["Clientes Por Hora"].Points.Last().Color = color;
+            }
+
+            // Configurar gráfico de líneas
+            frmGraficas.chartLineas.ChartAreas.Clear();
+            frmGraficas.chartLineas.Series.Clear();
+            frmGraficas.chartLineas.ChartAreas.Add("ChartArea");
+            frmGraficas.chartLineas.Series.Add("Ganancia Por Hora");
+            frmGraficas.chartLineas.Series["Ganancia Por Hora"].ChartType = SeriesChartType.Line;
+
+            // Establecer intervalo de 1 en ambos ejes
+            //frmGraficas.chartLineas.ChartAreas[0].AxisX.Interval = 1;
+
+            // Obtener los datos de las columnas "Hora" y "Ganancia" del DataGridView
+            foreach (DataGridViewRow row in dataGeneral.Rows)
+            {
+                // Obtener los valores de las columnas
+                int hora = Convert.ToInt32(row.Cells["Hora"].Value);
+                float ganancia = Convert.ToSingle(row.Cells["Ganancia"].Value);
+
+                // Agregar los datos al gráfico de líneas
+                frmGraficas.chartLineas.Series["Ganancia Por Hora"].Points.AddXY(hora, ganancia);
+            }
+
+            // Mostrar el formulario con los gráficos
             frmGraficas.ShowDialog();
+        }
+
+
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        public void getGastoHora()
+        {
+            float gastoTotal = operaciones.getGastoTotal();
+            float gastoHora = gastoTotal / 30 / 8;
+
+            labelGasto.Text = "Gasto por Hora: Q" + gastoHora.ToString("0.00");
+        }
+
+        private void labelGasto_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        public void showScenary()
+        {
+            labelEscenario.Visible = true;
+            labelGasto.Visible = true;
+            dataGeneral.Visible = true;
+
+        }
+
+        private void Simulador_Load(object sender, EventArgs e)
+        {
+            isSimulado();
         }
     }
 }
