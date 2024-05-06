@@ -82,6 +82,22 @@
             this.btnSimular.UseVisualStyleBackColor = false;
             this.btnSimular.Click += new System.EventHandler(this.btnSimular_Click);
             // 
+
+            // dataGeneral
+            // 
+            this.dataGeneral.AllowUserToAddRows = false;
+            this.dataGeneral.AllowUserToDeleteRows = false;
+            this.dataGeneral.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGeneral.Location = new System.Drawing.Point(95, 299);
+            this.dataGeneral.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGeneral.Name = "dataGeneral";
+            this.dataGeneral.ReadOnly = true;
+            this.dataGeneral.RowHeadersWidth = 51;
+            this.dataGeneral.Size = new System.Drawing.Size(1197, 532);
+            this.dataGeneral.TabIndex = 2;
+            this.dataGeneral.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGeneral_CellDoubleClick);
+            // 
+
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveBorder;

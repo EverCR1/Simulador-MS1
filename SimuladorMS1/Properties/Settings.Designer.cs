@@ -33,5 +33,15 @@ namespace SimuladorMS1.Properties {
                 return ((string)(this["bdSimuladorCS"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-J1QATOM;Initial Catalog=bdSimulador;User ID=sa;Password=123")]
+        public string bdSimuladorCS1 {
+            get {
+                return ((string)(this["bdSimuladorCS1"]));
+            }
+        }
     }
 }

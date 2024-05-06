@@ -46,6 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AgregarGasto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AgregarGasto.Designer.cs">
+      <DependentUpon>AgregarGasto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AgregarProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AgregarProducto.Designer.cs">
+      <DependentUpon>AgregarProducto.cs</DependentUpon>
+    </Compile>
     <Compile Include="bdSimuladorDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -84,11 +96,19 @@
     <Compile Include="frmHoras.Designer.cs">
       <DependentUpon>frmHoras.cs</DependentUpon>
     </Compile>
+
     <Compile Include="frmResultados.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmResultados.Designer.cs">
       <DependentUpon>frmResultados.cs</DependentUpon>
+
+    <Compile Include="Gastos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gastos.Designer.cs">
+      <DependentUpon>Gastos.cs</DependentUpon>
+
     </Compile>
     <Compile Include="Operaciones.cs" />
     <Compile Include="Program.cs" />
@@ -100,6 +120,12 @@
     <Compile Include="Simulador.Designer.cs">
       <DependentUpon>Simulador.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AgregarGasto.resx">
+      <DependentUpon>AgregarGasto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AgregarProducto.resx">
+      <DependentUpon>AgregarProducto.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -115,8 +141,13 @@
     <EmbeddedResource Include="frmHoras.resx">
       <DependentUpon>frmHoras.cs</DependentUpon>
     </EmbeddedResource>
+
     <EmbeddedResource Include="frmResultados.resx">
       <DependentUpon>frmResultados.cs</DependentUpon>
+
+    <EmbeddedResource Include="Gastos.resx">
+      <DependentUpon>Gastos.cs</DependentUpon>
+
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
