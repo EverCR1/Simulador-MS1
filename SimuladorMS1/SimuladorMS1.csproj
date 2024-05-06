@@ -35,6 +35,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,23 +47,33 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AgregarGasto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AgregarGasto.designer.cs">
+      <DependentUpon>AgregarGasto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AgregarProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AgregarProducto.designer.cs">
+      <DependentUpon>AgregarProducto.cs</DependentUpon>
+    </Compile>
     <Compile Include="bdSimuladorDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>bdSimuladorDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="detalleHora.cs" />
-    <Compile Include="detalleProducto.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
+    <Compile Include="Form1.designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Form2.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form2.Designer.cs">
+    <Compile Include="Form2.designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
     <Compile Include="Formulas.cs" />
@@ -90,16 +101,27 @@
     <Compile Include="frmResultados.Designer.cs">
       <DependentUpon>frmResultados.cs</DependentUpon>
     </Compile>
+    <Compile Include="Gastos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gastos.designer.cs">
+      <DependentUpon>Gastos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Operaciones.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="resumenGeneral.cs" />
     <Compile Include="Simulador.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Simulador.Designer.cs">
       <DependentUpon>Simulador.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AgregarGasto.resx">
+      <DependentUpon>AgregarGasto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AgregarProducto.resx">
+      <DependentUpon>AgregarProducto.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -117,6 +139,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmResultados.resx">
       <DependentUpon>frmResultados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gastos.resx">
+      <DependentUpon>Gastos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
