@@ -72,11 +72,23 @@
     <Compile Include="frmClientes.Designer.cs">
       <DependentUpon>frmClientes.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmGraficas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGraficas.Designer.cs">
+      <DependentUpon>frmGraficas.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmHoras.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmHoras.Designer.cs">
       <DependentUpon>frmHoras.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmResultados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmResultados.Designer.cs">
+      <DependentUpon>frmResultados.cs</DependentUpon>
     </Compile>
     <Compile Include="Operaciones.cs" />
     <Compile Include="Program.cs" />
@@ -97,8 +109,14 @@
     <EmbeddedResource Include="frmClientes.resx">
       <DependentUpon>frmClientes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmGraficas.resx">
+      <DependentUpon>frmGraficas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmHoras.resx">
       <DependentUpon>frmHoras.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmResultados.resx">
+      <DependentUpon>frmResultados.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
